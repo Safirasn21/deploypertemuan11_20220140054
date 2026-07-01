@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Deploy Pertemuan 11</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card auth-card">
+        <h2>Register</h2>
+        <p class="small-text">Buat akun baru untuk masuk ke aplikasi.</p>
+
+        <div th:if="${error}" class="alert-error" th:text="${error}"></div>
+
+        <form th:action="@{/register}" method="post">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Masukkan username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Masukkan password" required>
+
+            <button type="submit">Daftar</button>
+            <a class="btn btn-secondary" th:href="@{/login}">Kembali Login</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

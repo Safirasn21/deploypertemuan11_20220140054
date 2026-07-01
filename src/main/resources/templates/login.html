@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Deploy Pertemuan 11</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card auth-card">
+        <h2>Login</h2>
+        <p class="small-text">Deploy Pertemuan 11 - 20220140054</p>
+
+        <div th:if="${error}" class="alert-error" th:text="${error}"></div>
+        <div th:if="${success}" class="alert-success" th:text="${success}"></div>
+
+        <form th:action="@{/login}" method="post">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Masukkan username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Masukkan password" required>
+
+            <button type="submit">Login</button>
+            <a class="btn btn-secondary" th:href="@{/register}">Register</a>
+        </form>
+
+        <p class="small-text">Akun default: admin / 20220140054</p>
+    </div>
+</div>
+</body>
+</html>
