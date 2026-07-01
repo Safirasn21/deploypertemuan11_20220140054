@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input Mahasiswa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h2>Form Input Mahasiswa</h2>
+        <p class="small-text">Isi data mahasiswa. Data akan disimpan ke tabel profile di PostgreSQL.</p>
+
+        <div th:if="${error}" class="alert-error" th:text="${error}"></div>
+
+        <form th:action="@{/form}" method="post">
+            <label>Nama</label>
+            <input type="text" name="nama" placeholder="Masukkan nama" required>
+
+            <label>NIM</label>
+            <input type="text" name="nim" placeholder="Masukkan NIM" required>
+
+            <label>Alamat</label>
+            <input type="text" name="alamat" placeholder="Masukkan alamat" required>
+
+            <label>Jenis Kelamin</label>
+            <select name="jenisKelamin" required>
+                <option value="">Pilih jenis kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+
+            <button type="submit">Simpan</button>
+            <a class="btn btn-secondary" th:href="@{/home}">Kembali ke Home</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

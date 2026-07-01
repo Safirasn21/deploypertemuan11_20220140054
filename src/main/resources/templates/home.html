@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Data Mahasiswa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="header">
+            <div>
+                <h1>MY Website 20220140054</h1>
+                <p class="small-text">Selamat datang, <strong th:text="${username}"></strong>. Data tersimpan di PostgreSQL Docker.</p>
+            </div>
+            <a class="btn btn-danger" th:href="@{/logout}">Logout</a>
+        </div>
+
+        <div class="actions">
+            <a class="btn" th:href="@{/form}">+ Input Data Mahasiswa</a>
+        </div>
+
+        <div th:if="${param.success}" class="alert-success">Data berhasil disimpan ke database.</div>
+
+        <h3>Data Mahasiswa</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Jenis Kelamin</th>
+                <th>Alamat</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(profiles)}">
+                <td colspan="5">Belum ada data</td>
+            </tr>
+            <tr th:each="profile, iter : ${profiles}">
+                <td th:text="${iter.count}"></td>
+                <td th:text="${profile.nama}"></td>
+                <td th:text="${profile.nim}"></td>
+                <td th:text="${profile.jenisKelamin}"></td>
+                <td th:text="${profile.alamat}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
